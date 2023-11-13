@@ -29,10 +29,12 @@ namespace DungeonRtan.Scenes {
         public Status CurStatus { get; set; } = Status.Atk;
 
         public override bool Init() {
+
             InputManager.GetInst.AddBindFunction("Z", InputType.Down, ZPush);
             InputManager.GetInst.AddBindFunction("X", InputType.Down, XPush);
 
             CreateUI<CharCreateUI>();
+
             return true;
         }
 
@@ -62,7 +64,7 @@ namespace DungeonRtan.Scenes {
         private void ZPush() {
             if (CurStep == Step.End) {
                 if (mSceneUI.Sym.X == 37) {
-                    SceneManager.GetInst.ChangeScene<StartScene>(new Player(name, BaseAtk, BaseDef, BaseHp));
+                    SceneManager.GetInst.ChangeScene<MainScene>(new Player(name, BaseAtk, BaseDef, BaseHp));
                 } else {
                     SceneManager.GetInst.ChangeScene<StartScene>();
                 }

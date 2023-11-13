@@ -76,7 +76,7 @@ namespace DungeonRtan.UI {
         private void Enter() {
             switch (curMenu) {
                 case EMainMenu.Status:
-                    mOwner.CreateUI<StatusViewUI>();
+                    mOwner.CreateUI<StatusViewUI>(true);
                     break;
                 case EMainMenu.Inven:
                     break;

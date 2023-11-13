@@ -24,7 +24,7 @@ namespace DungeonRtan.UI  {
 
             CharCreateScene Scene = (CharCreateScene)mOwner;
             statusSelect = new List<string> {
-                "3. 스탯 분배를 해주세요. (남은 포인트 : " + Scene.BasePoint.ToString("D2") + ")",
+                "3. 스탯 분배를 해주세요. (남은 포인트 : " + Scene.BasePoint + ")",
                 "  공격력 : " + Scene.BaseAtk,
                 "  방어력 : " + Scene.BaseDef,
                 "  체력   : " + Scene.BaseHp
@@ -67,7 +67,7 @@ namespace DungeonRtan.UI  {
                 SetSybPos(Sym.X, y);
 
                 if (((CharCreateScene)mOwner).CurStatus != Status.End - 1)
-                    ((CharCreateScene)mOwner).CurStatus++;
+                    ((CharCreateScene)mOwner).CurStatus = ((CharCreateScene)mOwner).CurStatus + 1;
             }
         }
 
@@ -77,7 +77,7 @@ namespace DungeonRtan.UI  {
                 SetSybPos(Sym.X, y);
 
                 if (((CharCreateScene)mOwner).CurStatus != Status.Atk)
-                    ((CharCreateScene)mOwner).CurStatus--;
+                    ((CharCreateScene)mOwner).CurStatus = ((CharCreateScene)mOwner).CurStatus - 1;
             }
         }
 
@@ -130,7 +130,7 @@ namespace DungeonRtan.UI  {
         private void UpdateStatus() {
             CharCreateScene Scene = (CharCreateScene)mOwner;
             statusSelect = new List<string> {
-                "3. 스탯 분배를 해주세요. (남은 포인트 : " + Scene.BasePoint.ToString("D2") + ")",
+                "3. 스탯 분배를 해주세요. (남은 포인트 : " + Scene.BasePoint + ")",
                 "  공격력 : " + Scene.BaseAtk,
                 "  방어력 : " + Scene.BaseDef,
                 "  체력   : " + Scene.BaseHp

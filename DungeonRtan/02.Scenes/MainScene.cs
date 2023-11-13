@@ -4,7 +4,7 @@ using DungeonRtan.Objects;
 namespace DungeonRtan.Scenes {
     internal class MainScene : Scene {
         public override bool Init() {
-            mPlayer = new Player("테스트", 10, 5, 100);
+            //mPlayer = new Player("테스트", 10, 5, 100);
             CreateUI<MainUI>();
             return true;
         }

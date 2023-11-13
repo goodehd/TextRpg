@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DongHyun\\Documents\\csharpProject\\DungeonRtan\\DungeonRtan\\DungeonRtan.csproj",
+      "projectUniqueName": "C:\\Users\\DongHyun\\Documents\\csharpProject\\TextRpg\\DungeonRtan\\DungeonRtan.csproj",
       "projectName": "DungeonRtan",
-      "projectPath": "C:\\Users\\DongHyun\\Documents\\csharpProject\\DungeonRtan\\DungeonRtan\\DungeonRtan.csproj",
+      "projectPath": "C:\\Users\\DongHyun\\Documents\\csharpProject\\TextRpg\\DungeonRtan\\DungeonRtan.csproj",
       "packagesPath": "C:\\Users\\DongHyun\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DongHyun\\Documents\\csharpProject\\DungeonRtan\\DungeonRtan\\obj\\",
+      "outputPath": "C:\\Users\\DongHyun\\Documents\\csharpProject\\TextRpg\\DungeonRtan\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DongHyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
