@@ -73,8 +73,10 @@ namespace DungeonRtan.UI {
                 titleTex = "장착할 아이템을 선택해주세요. [E] : 착용중";
             } else if (viewtype == EItemViewType.View) { 
                 titleTex = "보유 중인 아이템을 관리할 수 있습니다.";
-            } else if (viewtype == EItemViewType.Shop) {
+            } else if (viewtype == EItemViewType.ShopBuy) {
                 titleTex = $"구매할 아이템을 선택해주세요. [V] : 보유중, 골드 : {mOwner.mPlayer.Gold} G";
+            } else if (viewtype == EItemViewType.ShopSell) {
+                titleTex = $"판매할 아이템을 선택해주세요. [V] : 보유중, 골드 : {mOwner.mPlayer.Gold} G";
             }
 
             AddStrings(viewtype, inven, itemType);
@@ -118,12 +120,13 @@ namespace DungeonRtan.UI {
                     return "몰?루";
             }
 
-            if (item.isEquipped && viewtype == EItemViewType.Equipped)
+            if (item.isEquipped && 
+                (viewtype == EItemViewType.Equipped || viewtype == EItemViewType.ShopSell))
                 name += "[E]";
 
             bool buy = false;
             if (mOwner.mPlayer.Inven.Items.Find(x => x.Name == item.Name) != default &&
-                viewtype == EItemViewType.Shop) {
+                viewtype == EItemViewType.ShopBuy) {
                 name += "[V]";
                 buy = true;
             }
@@ -142,7 +145,7 @@ namespace DungeonRtan.UI {
         }
 
         private void DownKey() {
-            if (curIndex == items.Count - 1)
+            if (curIndex >= items.Count - 1)
                 return;
 
             curIndex++;
@@ -150,6 +153,9 @@ namespace DungeonRtan.UI {
         }
 
         private void Enter() {
+            if (items.Count == 0)
+                return;
+
             switch (ViewType) {
                 case EItemViewType.Equipped:
                     if (items[curIndex].isEquipped) {
@@ -161,10 +167,11 @@ namespace DungeonRtan.UI {
                     break;
                 case EItemViewType.View:
                     break; ;
-                case EItemViewType.Shop:
+                case EItemViewType.ShopBuy:
                     ((ShopScene)mOwner).BuyItem(curIndex, isBuy[curIndex]);
                     break;
-                case EItemViewType.Max:
+                case EItemViewType.ShopSell:
+                    ((ShopScene)mOwner).SellItem(items[curIndex]);
                     break;
                 default:
                     break;
@@ -178,8 +185,9 @@ namespace DungeonRtan.UI {
                     break;
                 case EItemViewType.View:
                     break;
-                case EItemViewType.Shop:
-                    SceneManager.GetInst.ChangeScene<MainScene>(mOwner.mPlayer);
+                case EItemViewType.ShopBuy:
+                case EItemViewType.ShopSell:
+                    mOwner.CreateUI<ShopUI>(true);
                     break;
                 case EItemViewType.Max:
                     break;

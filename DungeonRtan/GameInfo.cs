@@ -33,7 +33,8 @@ public enum EItemType {
 public enum EItemViewType {
     Equipped,
     View,
-    Shop,
+    ShopBuy,
+    ShopSell,
     Max
 }
 

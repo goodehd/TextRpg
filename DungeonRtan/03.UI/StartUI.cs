@@ -86,6 +86,13 @@ namespace DungeonRtan.UI {
         }
 
         private void ContinuePlay() {
+            string projectPath = Directory.GetCurrentDirectory();
+            string[] pathSegments = projectPath.Split(new[] { "bin" }, StringSplitOptions.None);
+            projectPath = pathSegments[0] + "Save\\player.bin";
+
+            if (!File.Exists(projectPath))
+                return;
+
             Player player = new Player();
             player.Load();
             SceneManager.GetInst.ChangeScene<MainScene>(player);

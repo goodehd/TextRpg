@@ -4,7 +4,7 @@ using DungeonRtan.UI;
 
 namespace DungeonRtan.Scenes {
     internal class ShopScene : Scene {
-        private List<Item> items;
+        public List<Item> items { get; private set; }
 
         public override bool Init() {
             items = new List<Item>();
@@ -18,7 +18,8 @@ namespace DungeonRtan.Scenes {
             items.Add(new Item("고양이", 5, 0, 1000, 0, EItemType.Armor, "나만 고양이 없는 것 같아요", false, "공격력 : +5"));
             items.Add(new Item("윤하의 벨트", 5, 0, 10000, 0, EItemType.Armor, "터져버린 흔적이 보여요", false, "공격력 : +5"));
 
-            CreateUI<ItemsViewUI>().SetViewType(EItemViewType.Shop, items);
+            CreateUI<ShopUI>(true);
+            //CreateUI<ItemsViewUI>().SetViewType(EItemViewType.ShopBuy, items);
             return true;
         }
 
@@ -39,7 +40,22 @@ namespace DungeonRtan.Scenes {
 
             mPlayer.Inven.AddItem(items[index]);
             mPlayer.Gold -= items[index].Gold;
-            ((ItemsViewUI)mSceneUI).SetViewType(EItemViewType.Shop, items);
+            ((ItemsViewUI)mSceneUI).SetViewType(EItemViewType.ShopBuy, items);
+        }
+
+        public void SellItem(Item item) {
+
+            mPlayer.Gold += (int)(item.Gold * 0.85f);
+            mPlayer.Inven.Items.Remove(item);
+
+            if (mPlayer.Inven.CurWeapon == item)
+                mPlayer.Inven.CurWeapon = null;
+
+            if (mPlayer.Inven.CurArmor == item)
+                mPlayer.Inven.CurArmor = null;
+
+            Console.Clear();
+            ((ItemsViewUI)mSceneUI).SetViewType(EItemViewType.ShopSell, mPlayer.Inven.Items);
         }
     }
 }
