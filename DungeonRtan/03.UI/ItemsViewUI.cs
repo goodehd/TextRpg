@@ -114,7 +114,7 @@ namespace DungeonRtan.UI {
                     name = "무기";
                     break;
                 case EItemType.Armor:
-                    name = "방어구다";
+                    name = "방어구";
                     break;
                 default:
                     return "몰?루";
