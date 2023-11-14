@@ -56,5 +56,14 @@ namespace DungeonRtan.UI {
             Sym.X = X;
             Sym.Y = Y;
         }
+
+        protected void CenterTest(List<string> txt, int downOffSet) {
+            for (int i = 0; i < txt.Count; i++) {
+                float half = Console.WindowWidth / 2.0f;
+                half -= txt[i].Length;
+                Console.SetCursorPosition((int)half, i + downOffSet);
+                Console.WriteLine(txt[i]);
+            }
+        }
     }
 }

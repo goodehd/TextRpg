@@ -2,27 +2,22 @@
 
 namespace DungeonRtan.Object {
     public class Item : GameObject {
-        public override string Name { get; set; }
-        public override int Level { get; set; }
-        public override int ATK { get; set; }
-        public override int DEF { get; set; }
-        public override int HP { get; set; }
-        public override int Gold { get; set; }
-
         public EItemType Type { get; set; }
-        public bool Used { get; set; }
-        public string Explan {get; set;}
+        public bool isEquipped { get; set; }
+        public string Descrip { get; set;}
+        public string AbilDescrip { get; set; }
 
-        public override bool Init() {
-            return true;
-        }
-
-        public override void Render() {
-
-        }
-
-        public override void Update() {
-
+        public Item(string name, int atk, int def, int gold, int hp, 
+            EItemType type, string descrip, bool isEquipped, string AbilDesc) {
+            Name = name;
+            ATK = atk;
+            DEF = def;
+            Gold = gold;
+            HP = hp;
+            Type = type;
+            Descrip = descrip;
+            this.isEquipped = isEquipped;
+            AbilDescrip = AbilDesc;
         }
     }
 }

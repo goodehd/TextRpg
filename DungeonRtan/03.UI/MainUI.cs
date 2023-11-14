@@ -79,8 +79,10 @@ namespace DungeonRtan.UI {
                     mOwner.CreateUI<StatusViewUI>(true);
                     break;
                 case EMainMenu.Inven:
+                    mOwner.CreateUI<itmChgUI>(true);
                     break;
                 case EMainMenu.Shop:
+                    SceneManager.GetInst.ChangeScene<ShopScene>(mOwner.mPlayer);
                     break;
                 case EMainMenu.Dungeon:
                     break;

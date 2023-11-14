@@ -66,7 +66,7 @@ namespace DungeonRtan.Scenes {
                 if (mSceneUI.Sym.X == 37) {
                     SceneManager.GetInst.ChangeScene<MainScene>(new Player(name, BaseAtk, BaseDef, BaseHp));
                 } else {
-                    SceneManager.GetInst.ChangeScene<StartScene>();
+                    SceneManager.GetInst.ChangeScene<StartScene>(null);
                 }
             }
 

@@ -71,7 +71,7 @@ namespace DungeonRtan.UI {
         private void Enter() {
             switch (sybY) {
                 case StartMenu.Start:
-                    SceneManager.GetInst.ChangeScene<CharCreateScene>();
+                    SceneManager.GetInst.ChangeScene<CharCreateScene>(null);
                     break;
                 case StartMenu.Continue:
                     break;

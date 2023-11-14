@@ -29,3 +29,10 @@ public enum EItemType {
     Armor,
     Max
 }
+
+public enum EItemViewType {
+    Equipped,
+    View,
+    Shop,
+    Max
+}

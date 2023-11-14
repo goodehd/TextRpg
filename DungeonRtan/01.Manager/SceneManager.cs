@@ -9,7 +9,7 @@ namespace DungeonRtan.Manager {
         //private Scene? mNextScene;
 
         public bool Init() {
-            CreateScene<StartScene>();
+            CreateScene<MainScene>();
             return true;
         }
 
@@ -32,16 +32,16 @@ namespace DungeonRtan.Manager {
             return true;
         }
 
-        public void ChangeScene<T>() where T : Scene, new() {
-            T nextScene = new T();
+        //public void ChangeScene<T>() where T : Scene, new() {
+        //    T nextScene = new T();
 
-            InputManager.GetInst.ClearBind();
-            Console.Clear();
+        //    InputManager.GetInst.ClearBind();
+        //    Console.Clear();
 
-            nextScene.Init();
+        //    nextScene.Init();
 
-            mScene = nextScene;
-        }
+        //    mScene = nextScene;
+        //}
 
         public bool ChangeScene<T>(Player player) where T : Scene, new() {
             T newScene = new T();
@@ -49,11 +49,11 @@ namespace DungeonRtan.Manager {
             InputManager.GetInst.ClearBind();
             Console.Clear();
 
-            if (!newScene.Init())
-                return false;
-
             mScene = newScene;
             newScene.mPlayer = player;
+
+            if (!newScene.Init())
+                return false;
 
             return true;
         }

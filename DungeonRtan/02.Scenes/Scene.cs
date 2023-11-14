@@ -11,7 +11,7 @@ namespace DungeonRtan.Scenes {
         public abstract void Render();
         public abstract void Update();
 
-        public bool CreateUI<T>(bool bindClear = false) where T : ScreenUI, new() {
+        public T CreateUI<T>(bool bindClear = false) where T : ScreenUI, new() {
             mSceneUI = new T();
 
             mSceneUI.mOwner = this;
@@ -22,9 +22,9 @@ namespace DungeonRtan.Scenes {
                 InputManager.GetInst.ClearBind();
 
             if (!mSceneUI.Init())
-                return false;
+                return null;
 
-            return true;
+            return (T)mSceneUI;
         }
     }
 }
