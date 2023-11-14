@@ -18,6 +18,7 @@ namespace DungeonRtan.UI {
                  "상태 보기",
                  "캐릭터의 정보가 표시됩니다",
                  "",
+                $"이름 : {Player.Name}",
                 $"Lv. {Player.Level}",
                 $"class : {Player.Chad.ToString()}",
                 $"공격력 : {Player.ATK} (+{weponeAtk})",

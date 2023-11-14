@@ -88,6 +88,7 @@ namespace DungeonRtan.UI {
                     mOwner.CreateUI<DungeonUI>(true);
                     break;
                 case EMainMenu.Rest:
+                    mOwner.CreateUI<RestUI>(true);
                     break;
                 case EMainMenu.Save:
                     break;

@@ -66,6 +66,7 @@ namespace DungeonRtan.UI {
             itemAbils.Clear();
             itemEx.Clear();
             itemGold.Clear();
+            isBuy.Clear();
 
             ViewType = viewtype;
             if (viewtype == EItemViewType.Equipped) {
