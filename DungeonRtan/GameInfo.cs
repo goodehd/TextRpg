@@ -36,3 +36,10 @@ public enum EItemViewType {
     Shop,
     Max
 }
+
+public enum EDifficulty {
+    Easy,
+    Normal,
+    Hard,
+    Max
+}

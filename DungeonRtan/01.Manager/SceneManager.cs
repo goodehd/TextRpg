@@ -32,17 +32,6 @@ namespace DungeonRtan.Manager {
             return true;
         }
 
-        //public void ChangeScene<T>() where T : Scene, new() {
-        //    T nextScene = new T();
-
-        //    InputManager.GetInst.ClearBind();
-        //    Console.Clear();
-
-        //    nextScene.Init();
-
-        //    mScene = nextScene;
-        //}
-
         public bool ChangeScene<T>(Player player) where T : Scene, new() {
             T newScene = new T();
 

@@ -15,15 +15,15 @@ namespace DungeonRtan.UI {
                 int armorDef = Player.Inven.CurArmor == null ? 0 : Player.Inven.CurArmor.DEF;
 
                 status = new List<string> {
-                 "        상태 보기",
+                 "상태 보기",
                  "캐릭터의 정보가 표시됩니다",
                  "",
-                $"       Lv. {Player.Level}",
-                $"       class : {Player.Chad.ToString()}",
-                $"       공격력 : {Player.ATK} (+{weponeAtk})",
-                $"       방어력 : {Player.DEF} (+{armorDef})",
-                $"       체력 : {Player.HP}",
-                $"       Gold : {Player.Gold} G",
+                $"Lv. {Player.Level}",
+                $"class : {Player.Chad.ToString()}",
+                $"공격력 : {Player.ATK} (+{weponeAtk})",
+                $"방어력 : {Player.DEF} (+{armorDef})",
+                $"체력 : {Player.HP}",
+                $"Gold : {Player.Gold} G",
                 };
 
                 PrintText(status, 38, 8);
