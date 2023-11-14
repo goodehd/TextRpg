@@ -9,7 +9,8 @@ namespace DungeonRtan.Manager {
         //private Scene? mNextScene;
 
         public bool Init() {
-            CreateScene<MainScene>();
+            //CreateScene<MainScene>();
+            CreateScene<StartScene>();
             return true;
         }
 

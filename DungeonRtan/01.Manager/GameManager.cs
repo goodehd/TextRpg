@@ -20,7 +20,7 @@ namespace DungeonRtan.Manager {
             if(mCurPlatform == PlatformID.Win32NT) {
                 Console.SetWindowSize(mScreen.Width, mScreen.Height);
             } else if(mCurPlatform == PlatformID.MacOSX){
-                //MAC에서 콘솔 크기를 변경하는 코드 작성
+                
             }
 
             if (!InputManager.GetInst.Init())

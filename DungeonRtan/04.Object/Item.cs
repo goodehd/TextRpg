@@ -19,5 +19,17 @@ namespace DungeonRtan.Object {
             this.isEquipped = isEquipped;
             AbilDescrip = AbilDesc;
         }
+
+        public void Save(BinaryWriter wr) {
+            wr.Write(Name);
+            wr.Write(ATK);
+            wr.Write(DEF);
+            wr.Write(Gold);
+            wr.Write(HP);
+            wr.Write((int)Type);
+            wr.Write(Descrip);
+            wr.Write(isEquipped);
+            wr.Write(AbilDescrip);
+        }
     }
 }

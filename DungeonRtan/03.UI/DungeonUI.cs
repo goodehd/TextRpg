@@ -87,7 +87,7 @@ namespace DungeonRtan.UI {
 
             if (playerDef < dungeonDef && random.NextDouble() < failureProbability) {
                 mOwner.mPlayer.HP -= playerHp / 2;
-                PrintResult(false, playerHp / 2, 0);
+                PrintResult(false, false, playerHp / 2, 0);
                 return;
             }
 
@@ -100,13 +100,22 @@ namespace DungeonRtan.UI {
 
             float CompGold = DungeonGold[(int)selectDiff] +
                 DungeonGold[(int)selectDiff] * random.Next(minAtkRange, maxAtkRange + 1) / 100.0f;
-
             mOwner.mPlayer.Gold += (int)CompGold;
 
-            PrintResult(true, lossHp, (int)CompGold);
+            bool levelup = false;
+            mOwner.mPlayer.ClearCount++;
+            if(mOwner.mPlayer.Level == mOwner.mPlayer.ClearCount) {
+                mOwner.mPlayer.Level++;
+                mOwner.mPlayer.ClearCount = 0;
+                mOwner.mPlayer.ATK += 1;
+                mOwner.mPlayer.DEF += 2;
+                levelup = true;
+            }
+
+            PrintResult(true, levelup, lossHp, (int)CompGold);
         }
 
-        private void PrintResult(bool isClear, int lossHP, int compGold) {
+        private void PrintResult(bool isClear, bool levelup, int lossHP, int compGold) {
             Console.Clear();
             isResult = true;
 
@@ -117,10 +126,16 @@ namespace DungeonRtan.UI {
                 text = "던전 클리어 실패";
             }
 
+            int up = 0;
+            if(levelup) {
+                up = 1;
+            }
+
             List<string> result = new List<string> {
                 text,
                 "",
                 "[탐험 결과]",
+                $"Lv {mOwner.mPlayer.Level - up} -> {mOwner.mPlayer.Level} (+{up})",
                 $"체력 {mOwner.mPlayer.HP + lossHP} -> {mOwner.mPlayer.HP} ({-lossHP})",
                 $"Gold {mOwner.mPlayer.Gold - compGold} -> {mOwner.mPlayer.Gold} (+{compGold})",
                 "",

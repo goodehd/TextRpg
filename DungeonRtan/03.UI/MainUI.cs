@@ -91,6 +91,7 @@ namespace DungeonRtan.UI {
                     mOwner.CreateUI<RestUI>(true);
                     break;
                 case EMainMenu.Save:
+                    mOwner.mPlayer.Save();
                     break;
                 case EMainMenu.Exit:
                     Environment.Exit(0);

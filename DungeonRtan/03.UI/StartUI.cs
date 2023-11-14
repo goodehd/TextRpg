@@ -1,5 +1,6 @@
 ﻿
 using DungeonRtan.Manager;
+using DungeonRtan.Objects;
 using DungeonRtan.Scenes;
 using System.Reflection.Metadata.Ecma335;
 
@@ -74,6 +75,7 @@ namespace DungeonRtan.UI {
                     SceneManager.GetInst.ChangeScene<CharCreateScene>(null);
                     break;
                 case StartMenu.Continue:
+                    ContinuePlay();
                     break;
                 case StartMenu.Exit:
                     Environment.Exit(0);
@@ -81,6 +83,12 @@ namespace DungeonRtan.UI {
                 default:
                     throw new InvalidOperationException("올바르지 않은 접근");
             }
+        }
+
+        private void ContinuePlay() {
+            Player player = new Player();
+            player.Load();
+            SceneManager.GetInst.ChangeScene<MainScene>(player);
         }
     }
 }

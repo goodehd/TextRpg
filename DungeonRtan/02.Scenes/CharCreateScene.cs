@@ -64,7 +64,9 @@ namespace DungeonRtan.Scenes {
         private void ZPush() {
             if (CurStep == Step.End) {
                 if (mSceneUI.Sym.X == 37) {
-                    SceneManager.GetInst.ChangeScene<MainScene>(new Player(name, BaseAtk, BaseDef, BaseHp));
+                    Player player = new Player(name, BaseAtk, BaseDef, BaseHp);
+                    player.Inven.Init();
+                    SceneManager.GetInst.ChangeScene<MainScene>(player);
                 } else {
                     SceneManager.GetInst.ChangeScene<StartScene>(null);
                 }
