@@ -121,12 +121,14 @@ namespace DungeonRtan.Object {
             if(isWepone) {
                 string weponeName = rdr.ReadString();
                 CurWeapon = Items.Find(x => x.Name == weponeName);
+                CurWeapon.isEquipped = true;
             }
 
             bool isArmor = rdr.ReadBoolean();
             if (isArmor) {
                 string ArmorName = rdr.ReadString();
                 CurArmor = Items.Find(x => x.Name == ArmorName);
+                CurArmor.isEquipped = true;
             }
         }
     }
