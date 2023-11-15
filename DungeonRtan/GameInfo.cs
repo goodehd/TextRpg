@@ -1,4 +1,7 @@
-﻿interface IGameComponent {
+﻿
+// 게임 에서 사용하는 인터페이스와 enum을 모아놓은 곳
+
+interface IGameComponent {
     bool Init();
     void Update();
     void Render();
@@ -42,5 +45,12 @@ public enum EDifficulty {
     Easy,
     Normal,
     Hard,
+    Max
+}
+
+public enum EStartMenu {
+    Start,
+    Continue,
+    Exit,
     Max
 }

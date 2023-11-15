@@ -6,10 +6,8 @@ namespace DungeonRtan.Manager {
     internal class SceneManager : IGameComponent {
 
         private Scene? mScene;
-        //private Scene? mNextScene;
 
         public bool Init() {
-            //CreateScene<MainScene>();
             CreateScene<StartScene>();
             return true;
         }
@@ -22,6 +20,8 @@ namespace DungeonRtan.Manager {
             mScene.Render();
         }
 
+        // 초기 scene을 생성하는 함수
+        // where T : 이 함수에 들어올 수 있는 타입을 제한하는 문법, 여기서는 scnen을 상속 받는 타입만 사용가능
         private bool CreateScene<T>() where T : Scene, new() {
             T newScene = new T();
 
@@ -33,6 +33,9 @@ namespace DungeonRtan.Manager {
             return true;
         }
 
+        // scene 전환을 하기 위한 함수 
+        // where T : 이 함수에 들어올 수 있는 타입을 제한하는 문법, 여기서는 scnen을 상속 받는 타입만 사용가능
+        // player를 넘겨 받아 생성된 player를 돌려 쓴다.
         public bool ChangeScene<T>(Player player) where T : Scene, new() {
             T newScene = new T();
 

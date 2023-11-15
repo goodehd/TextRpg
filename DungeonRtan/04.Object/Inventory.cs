@@ -13,17 +13,6 @@ namespace DungeonRtan.Object {
 
         public Inventory() {
             Items = new List<Item>();
-
-            ////테스트 코드
-            //CurWeapon = new Item("낡은 검", 5, 0, 100, 0, EItemType.Weapon, "낡은 거어어어엄", true, "공격력 : +5");
-            //CurArmor = new Item("무쇠 갑옷", 0, 2, 100, 0, EItemType.Armor, "무쇠에에에에 갑오옷", true, "방어력 +2");
-
-            //Items.Add(CurWeapon);
-            //Items.Add(CurArmor);
-            //Items.Add(new Item("막대기", 5, 0, 100, 0, EItemType.Weapon, "마악대기이이이이", false, "공격력 : +5"));
-            //Items.Add(new Item("돌맹이", 5, 0, 100, 0, EItemType.Weapon, "도올매앵이이이잉", false, "공격력 : +5"));
-            //Items.Add(new Item("모자", 5, 0, 100, 0, EItemType.Armor, "모오오오오오오오옹자", false, "공격력 : +5"));
-            //Items.Add(new Item("바지", 5, 0, 100, 0, EItemType.Armor, "바바아앙방바앙비지", false, "공격력 : +5"));
         }
 
         public void Init() {

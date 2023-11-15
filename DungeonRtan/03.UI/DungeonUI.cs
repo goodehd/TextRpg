@@ -13,9 +13,6 @@ namespace DungeonRtan.UI {
         private int[] OptimalDefense = new int[(int)EDifficulty.Max]{5, 11, 17};
         private int[] DungeonGold = new int[(int)EDifficulty.Max] { 1000, 1700, 2500 };
 
-        int baseX = 28;
-        int baseY = 10;
-
         public override bool Init() {
             base.Init();
             dungeonTitle = new List<string> {
@@ -31,6 +28,9 @@ namespace DungeonRtan.UI {
             InputManager.GetInst.AddBindFunction("Down", InputType.Down, DownKey);
             InputManager.GetInst.AddBindFunction("Z", InputType.Down, Enter);
             InputManager.GetInst.AddBindFunction("X", InputType.Down, Back);
+
+            baseX = 28;
+            baseY = 10;
 
             PrintText(dungeonTitle, baseX, baseY);
 

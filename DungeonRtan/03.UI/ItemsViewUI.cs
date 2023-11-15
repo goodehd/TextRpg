@@ -21,9 +21,6 @@ namespace DungeonRtan.UI {
         private List<bool> isBuy;
         private int curIndex = 0;
 
-        int baseX = 5;
-        int baseY = 12;
-
         public override bool Init() {
             base.Init();
 
@@ -44,6 +41,9 @@ namespace DungeonRtan.UI {
             InputManager.GetInst.AddBindFunction("Down", InputType.Down, DownKey);
             InputManager.GetInst.AddBindFunction("Z", InputType.Down, Enter);
             InputManager.GetInst.AddBindFunction("X", InputType.Down, Back);
+
+            baseX = 5;
+            baseY = 12;
 
             Sym.X = baseX - 3;
             Sym.Y = baseY + 2;

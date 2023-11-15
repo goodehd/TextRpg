@@ -130,7 +130,7 @@ namespace DungeonRtan.UI  {
         private void UpdateStatus() {
             CharCreateScene Scene = (CharCreateScene)mOwner;
             statusSelect = new List<string> {
-                "3. 스탯 분배를 해주세요. (남은 포인트 : " + Scene.BasePoint + ")",
+                "3. 스탯 분배를 해주세요. (남은 포인트 : " + Scene.BasePoint + ") ",
                 "  공격력 : " + Scene.BaseAtk,
                 "  방어력 : " + Scene.BaseDef,
                 "  체력   : " + Scene.BaseHp
